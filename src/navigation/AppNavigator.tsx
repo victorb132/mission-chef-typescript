@@ -9,6 +9,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        id={undefined}
         initialRouteName="Home"
         screenOptions={{ headerShown: false }}
       >

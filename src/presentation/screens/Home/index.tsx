@@ -1,19 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  ActivityIndicator,
-  TouchableOpacity,
-} from 'react-native';
-import { Container, Header, ProfileIcon, MealCard, MealImage } from './styles';
-import { useMealStore } from '../../../store/useMealStore';
-import { useNavigation } from '@react-navigation/native';
+  Container,
+  Header,
+  ProfileIcon,
+  MealCard,
+  MealImage,
+  HeaderText,
+  MealText,
+  BackgroundContainer,
+} from './styles';
+import { useMealStore } from '@store/useMealStore';
+import { useTheme } from 'styled-components';
+import { Switch } from 'react-native-gesture-handler';
+import { ThemeContext, ThemeType } from '@theme/Theme';
 
 const HomeScreen = () => {
   const { meals, isLoading, fetchMeals } = useMealStore();
-  const navigation = useNavigation();
+  const { colors } = useTheme();
+
+  const { toggleTheme, theme } = useContext(ThemeContext);
+
+  const isDarkTheme = theme === ThemeType.dark;
 
   useEffect(() => {
     fetchMeals();
@@ -22,18 +30,21 @@ const HomeScreen = () => {
   return (
     <Container>
       <Header>
-        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Olá, Usuário</Text>
+        <HeaderText>Olá, Usuário</HeaderText>
+        <Switch value={isDarkTheme} onValueChange={toggleTheme} />
         <TouchableOpacity onPress={() => {}}>
           <ProfileIcon source={{ uri: 'https://github.com/victorb132.png' }} />
         </TouchableOpacity>
       </Header>
 
       {isLoading ? (
-        <ActivityIndicator size="large" color="#007AFF" />
+        <BackgroundContainer>
+          <ActivityIndicator size="large" color={colors.textColor} />
+        </BackgroundContainer>
       ) : (
         <FlatList
           data={meals}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id + item.strMeal}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => {
             return (
@@ -43,7 +54,7 @@ const HomeScreen = () => {
               // }
               >
                 <MealImage source={{ uri: item.strMealThumb }} />
-                <Text style={{ fontSize: 16 }}>{item.strMeal}</Text>
+                <MealText>{item.strMeal}</MealText>
               </MealCard>
             );
           }}

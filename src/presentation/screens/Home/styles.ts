@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
+import { DefaultTheme } from "styled-components";
 
 export const Container = styled.View`
-  flex: 1;
-  background-color: #f8f9fa;
+  background-color: ${({ theme }) => theme.colors.primary};
   padding: 16px;
 `;
 
@@ -14,6 +14,12 @@ export const Header = styled.View`
   padding-bottom: 16px;
 `;
 
+export const HeaderText = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.textColor};
+`;
+
 export const ProfileIcon = styled.Image`
   width: 50px;
   height: 50px;
@@ -21,7 +27,7 @@ export const ProfileIcon = styled.Image`
 `;
 
 export const MealCard = styled.TouchableOpacity`
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.primary};
   padding-top: 16px;
   padding-bottom: 10px;
   border-radius: 10px;
@@ -34,4 +40,16 @@ export const MealImage = styled.Image`
   height: 60px;
   border-radius: 10px;
   margin-right: 10px;
+`;
+
+export const MealText = styled.Text`
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.textColor};
+`;
+
+export const BackgroundContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
