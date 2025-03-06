@@ -7,9 +7,9 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
-import { useMealStore } from '../../store/useMealStore';
+import { Container, Header, ProfileIcon, MealCard, MealImage } from './styles';
+import { useMealStore } from '../../../store/useMealStore';
 import { useNavigation } from '@react-navigation/native';
-import styled from 'styled-components/native';
 
 const HomeScreen = () => {
   const { meals, isLoading, fetchMeals } = useMealStore();
@@ -54,40 +54,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-// Estilos com Styled Components
-const Container = styled.View`
-  flex: 1;
-  background-color: #f8f9fa;
-  padding: 16px;
-`;
-
-const Header = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 32px;
-  padding-bottom: 16px;
-`;
-
-const ProfileIcon = styled.Image`
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-`;
-
-const MealCard = styled.TouchableOpacity`
-  background-color: white;
-  padding-top: 16px;
-  padding-bottom: 10px;
-  border-radius: 10px;
-  flex-direction: row;
-  align-items: center;
-`;
-
-const MealImage = styled.Image`
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  margin-right: 10px;
-`;
