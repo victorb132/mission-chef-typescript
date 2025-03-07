@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 
 export const Container = styled.View`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.background};
   padding: ${moderateScale(16)}px;
 `;
 
@@ -17,7 +17,7 @@ export const Header = styled.View`
 export const HeaderText = styled.Text`
   font-size: ${moderateScale(24)}px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.textColor};
+  color: ${({ theme }) => theme.colors.primaryText};
 `;
 
 export const ProfileIcon = styled.Image`
@@ -27,7 +27,7 @@ export const ProfileIcon = styled.Image`
 `;
 
 export const MealCard = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.background};
   padding-top: ${moderateScale(16)}px;
   padding-bottom: ${moderateScale(10)}px;
   border-radius: ${moderateScale(10)}px;
@@ -44,12 +44,5 @@ export const MealImage = styled.Image`
 
 export const MealText = styled.Text`
   font-size: ${moderateScale(16)}px;
-  color: ${({ theme }) => theme.colors.textColor};
-`;
-
-export const BackgroundContainer = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primaryText};
 `;

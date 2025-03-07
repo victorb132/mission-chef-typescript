@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import {
   Container,
@@ -8,20 +8,19 @@ import {
   MealImage,
   HeaderText,
   MealText,
-  BackgroundContainer,
 } from './styles';
 import { useMealStore } from '@store/useMealStore';
 import { useTheme } from 'styled-components';
-import { Switch } from 'react-native-gesture-handler';
-import { ThemeContext, ThemeType } from '@theme/Theme';
+// import { Switch } from 'react-native-gesture-handler';
+// import { ThemeContext, ThemeType } from '@theme/Theme';
 
 const HomeScreen = () => {
   const { meals, isLoading, fetchMeals } = useMealStore();
   const { colors } = useTheme();
 
-  const { toggleTheme, theme } = useContext(ThemeContext);
+  // const { toggleTheme, theme } = useContext(ThemeContext);
 
-  const isDarkTheme = theme === ThemeType.dark;
+  // const isDarkTheme = theme === ThemeType.dark;
 
   useEffect(() => {
     fetchMeals();
@@ -31,16 +30,14 @@ const HomeScreen = () => {
     <Container>
       <Header>
         <HeaderText>Olá, Usuário</HeaderText>
-        <Switch value={isDarkTheme} onValueChange={toggleTheme} />
+        {/* <Switch value={isDarkTheme} onValueChange={toggleTheme} /> */}
         <TouchableOpacity onPress={() => {}}>
           <ProfileIcon source={{ uri: 'https://github.com/victorb132.png' }} />
         </TouchableOpacity>
       </Header>
 
       {isLoading ? (
-        <BackgroundContainer>
-          <ActivityIndicator size="large" color={colors.textColor} />
-        </BackgroundContainer>
+        <ActivityIndicator size="large" color={colors.textColor} />
       ) : (
         <FlatList
           data={meals}
