@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
-import { StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import HomeScreen from '../presentation/screens/Home';
 import { useTheme } from 'styled-components';
 
@@ -67,6 +67,7 @@ const AppNavigator = () => {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar backgroundColor={colors.background} barStyle="light-content" />
       <NavigationContainer>
         <Bottom.Navigator
           id={undefined}

@@ -8,6 +8,9 @@ import {
   MealImage,
   HeaderText,
   MealText,
+  ContainerTextHeader,
+  SubHeaderText,
+  WithoutIcon,
 } from './styles';
 import { useMealStore } from '@store/useMealStore';
 import { useTheme } from 'styled-components';
@@ -29,10 +32,16 @@ const HomeScreen = () => {
   return (
     <Container>
       <Header>
-        <HeaderText>Olá, Usuário</HeaderText>
+        <ContainerTextHeader>
+          <HeaderText>Olá,</HeaderText>
+          <SubHeaderText>Pronto para cozinhar?</SubHeaderText>
+        </ContainerTextHeader>
         {/* <Switch value={isDarkTheme} onValueChange={toggleTheme} /> */}
         <TouchableOpacity onPress={() => {}}>
-          <ProfileIcon source={{ uri: 'https://github.com/victorb132.png' }} />
+          <WithoutIcon>
+            <HeaderText>V</HeaderText>
+          </WithoutIcon>
+          {/* <ProfileIcon source={{ uri: 'https://github.com/victorb132.png' }} /> */}
         </TouchableOpacity>
       </Header>
 
@@ -43,6 +52,16 @@ const HomeScreen = () => {
           data={meals}
           keyExtractor={(item) => item.id + item.strMeal}
           showsVerticalScrollIndicator={false}
+          numColumns={2}
+          contentContainerStyle={{
+            paddingBottom: 100,
+            paddingTop: 20,
+          }}
+          columnWrapperStyle={{
+            justifyContent: 'space-between',
+            marginBottom: 16,
+            marginTop: 50,
+          }}
           renderItem={({ item }) => {
             return (
               <MealCard

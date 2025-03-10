@@ -7,5 +7,6 @@ export default {
     accent: '#EA641F',
     terciaryText: '#A8A8A8',
     bottomSheetColor: '#ECECEC',
+    black: '#000000',
   }
 }

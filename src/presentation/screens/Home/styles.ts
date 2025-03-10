@@ -14,8 +14,26 @@ export const Header = styled.View`
   padding-bottom: ${moderateScale(16)}px;
 `;
 
+export const WithoutIcon = styled.View`
+  width: ${scale(50)}px;
+  height: ${verticalScale(50)}px;
+  border-radius: ${moderateScale(50)}px;
+  background-color: ${({ theme }) => theme.colors.black};
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ContainerTextHeader = styled.View`
+  flex-direction: column;
+`;
+
+export const SubHeaderText = styled.Text`
+  font-size: ${moderateScale(14)}px;
+  color: ${({ theme }) => theme.colors.secondaryText};
+`;
+
 export const HeaderText = styled.Text`
-  font-size: ${moderateScale(24)}px;
+  font-size: ${moderateScale(22)}px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.primaryText};
 `;
@@ -27,19 +45,20 @@ export const ProfileIcon = styled.Image`
 `;
 
 export const MealCard = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.colors.background};
-  padding-top: ${moderateScale(16)}px;
-  padding-bottom: ${moderateScale(10)}px;
-  border-radius: ${moderateScale(10)}px;
-  flex-direction: row;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
+  border-radius: ${moderateScale(30)}px;
   align-items: center;
+  justify-content: center;
+  height: ${verticalScale(170)}px;
+  flex: 0.48;
 `;
 
 export const MealImage = styled.Image`
-  width:${scale(60)}px;
-  height: ${verticalScale(60)}px;
-  border-radius: ${moderateScale(10)}px;
-  margin-right: ${moderateScale(10)}px;
+  position: absolute;
+  top: ${moderateScale(-50)}px;
+  width:${scale(100)}px;
+  height: ${verticalScale(100)}px;
+  border-radius: ${moderateScale(100)}px;
 `;
 
 export const MealText = styled.Text`
